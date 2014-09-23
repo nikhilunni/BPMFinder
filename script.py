@@ -5,7 +5,7 @@ import json
 import numpy
 import time
 
-api_key="QUJH6KNWA7UGZHYDU"
+api_key="YOUR_API_KEY"
 
 def getBPM(song):
 	try:
