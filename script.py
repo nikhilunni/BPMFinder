@@ -38,10 +38,6 @@ for genre in genres:
 	f.write(genre + '\n')
 	f.write("---------------\n")
 
-	print("---------------")
-	print(genre)
-	print("---------------")
-
 	for artist in getArtists(genre):
 		print('\t' + artist['name'])
 		artist_BPMs = []
@@ -55,13 +51,9 @@ for genre in genres:
 				list_O_BPMs.append(BPM)
 				artist_BPMs.append(BPM)
 				f.write("\t\t" + str(song['title'].encode('utf8')) + " - " + str(getBPM(song['id'])) + " BPM \n")
-				print("\t\t" + str(song['title'].encode('utf8')) + " - " + str(getBPM(song['id'])) + " BPM")
 		f.write('\t' + str(artist['name'].encode('utf8')) + " mean BPM : " + str(numpy.average(artist_BPMs)) + ", std. deviation : " + str(numpy.std(numpy.array(artist_BPMs))) + ", num songs sampled : " + str(len(artist_BPMs)) + '\n')
-		print('\t' + str(artist['name'].encode('utf8')) + " mean BPM : " + str(numpy.average(artist_BPMs)) + ", std. deviation : " + str(numpy.std(numpy.array(artist_BPMs))) + ", num songs sampled : " + str(len(artist_BPMs)) + '\n')
 
 	f.write(genre + " - total number of songs : " + str(len(list_O_BPMs)) + '\n')
 	f.write(genre + " - average BPM : " + str(numpy.average(list_O_BPMs)) + '\n')
 	f.write(genre + " - BPM std. deviation : " + str(numpy.std(numpy.array(list_O_BPMs))) + '\n')
-	
-	print("FINAL AVERAGE : " + str(numpy.average(list_O_BPMs)))
 f.close()
